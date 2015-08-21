@@ -78,3 +78,5 @@ after_configuration do
   sprockets.append_path File.join "#{root}", @bower_config["directory"]
   sprockets.append_path File.join "#{root}", @bower_config["directory"], "bootstrap-sass", "assets", "stylesheets"
 end
+
+ignore 'javascripts/includes/*'
