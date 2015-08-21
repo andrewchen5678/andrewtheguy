@@ -7,7 +7,8 @@
 @import "bootstrap-sprockets";
 
 // Core variables and mixins
-@import "_variables";
+//@import "_variables";
+@import "_bootswatch_variables";
 @import "bootstrap/mixins";
 
 // Reset and dependencies
@@ -56,3 +57,5 @@
 // Utility classes
 @import "bootstrap/utilities";
 @import "bootstrap/responsive-utilities";
+
+@import "_bootswatch";
