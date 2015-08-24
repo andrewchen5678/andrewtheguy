@@ -27,6 +27,7 @@ body {
     }
 }
 
+/* ie9 fix */
 .ie9 img[src*=".svg"] {
   width: 100%; 
 }
