@@ -1,17 +1,29 @@
 @import "bootstrap/mixins";
+@import "flexbox";
+@import "mixins";
 
 body {
     padding-top: 50px;
     padding-bottom: 20px;
 }
 
-.navbar-brand{
+.navbar-header{
+    //
+}
+
+.header-logo{
+    display:block;
+    margin-top: 10px;
+    margin-left: 15px;
+    margin-right: 15px;
     .logo{
         width: 30px;
         
+        /*
         #tag_group {
             fill: #2A2F38;
         }
+        */
     }
 }
 

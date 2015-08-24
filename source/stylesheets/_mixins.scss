@@ -1,0 +1,334 @@
+// retina background
+@mixin image-2x($image, $width, $height) {
+  @media (min--moz-device-pixel-ratio: 1.3),
+         (-o-min-device-pixel-ratio: 2.6/2),
+         (-webkit-min-device-pixel-ratio: 1.3),
+         (min-device-pixel-ratio: 1.3),
+         (min-resolution: 1.3dppx) {
+    /* on retina, use image that's scaled by 2 */
+    background-image: url($image);
+    background-size: $width $height;
+  }
+}
+
+//mixins.scss
+
+// RESETS
+@mixin clear-appearance {
+  appearance:none; /* CSS 3 */
+  -webkit-appearance:none; /* Safari and Chrome */
+  -moz-appearance:none; /* Firefox */
+  /*
+  // not supported
+  -ms-appearance:none;
+  -o-appearance:none;
+  */
+}
+
+@mixin plain-button {
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  overflow: visible; // removes padding in IE
+  &::-moz-focus-inner{
+      border: none;
+      padding: 0;
+  }
+}
+
+// LAYOUT
+@mixin vertical-align {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+@mixin box-sizing($property: border-box) {
+  -moz-box-sizing: $property;
+  -webkit-box-sizing: $property;
+  box-sizing: $property;
+}
+
+@mixin block-center ($width: 640px) {
+  max-width: $width;
+  margin-left:auto !important;
+  margin-right:auto !important;
+}
+
+@mixin block-center-vertical($height: 10px) {
+  display: table-cell;
+  height: $height;
+  vertical-align: middle;
+}
+
+@mixin block-line ($color: grey, $w: 100%, $h: 1px, $image: none) {
+
+  @if $image == none {
+    background-image:none;
+  } 
+  @else {
+    background-image:url($image);
+  }
+
+  background-repeat: repeat-x;
+  background-size: contain;
+  background-color: $color;
+  width: $w;
+  height: $h;
+}
+
+@mixin margin($left: 0px, $right: 0px) {
+  margin-left: $left;
+  margin-right: $right;
+}
+
+// .block-list($padY $padX, 0px 0px);
+@mixin block-list ($pad: 0 0, $m: 0 0, $w: 100%) { 
+  @include box-sizing;
+  @include clearfix;
+  position:relative;
+  overflow:hidden;
+  padding:$pad;
+  margin:$m;
+  width:$w;
+}
+
+// float-block-horz(65%;auto,left,no,40); 
+@mixin float-block-horz ($width: auto, $height: auto, $float: left, $dimensionsExist: false, $zIndex: 0) {
+  max-width:100%;  
+  overflow:hidden;
+  position:relative;
+  float:$float;
+  z-index:$zIndex;
+  
+  @if $dimensionsExist == false {
+    width:$width;
+    height:$height;
+  }
+}
+
+// .move-block-horz(absolute,170px,auto,left,0,100);
+@mixin move-block-horz ($position, $width: auto, $height: auto, $move: 0px, $pixels: 0px, $zIndex: 0) {
+
+  @if $position == relative {
+    // failed - nada
+  } 
+  @else {
+    max-width:100%;  
+    overflow:hidden;
+    width:$width;
+    height:$height;
+    z-index:$zIndex;
+    position:$position;
+    
+    @if $move == left {
+      left: $pixels; 
+    } 
+    @else if $move == right {
+      right: $pixels;
+    }
+  }
+}
+@mixin border($size: 0px, $type: solid, $color: #ffffff, $pos: none, $y: none) {
+  @if $pos != none {
+    @if $y != none {
+      padding-#{$pos}:$y; 
+    }
+    border-#{$pos}:$size $type $color;
+  }
+  @else {
+    border:$size $type $color;
+  }
+}
+
+// .box-shadows(4px,4px,10px,#f9f9f9);
+@mixin box-shadows ($h: 0, $v: 0, $blur: 1px, $color: #bfbebb, $inner: none) {
+  @if ($inner == none) {
+    -o-box-shadow: $h $v $blur $color;
+    -moz-box-shadow: $h $v $blur $color;
+    -webkit-box-shadow: $h $v $blur $color;
+    box-shadow: $h $v $blur $color;
+  }
+  @else {
+    -o-box-shadow: inset $h $v $blur $color;
+    -moz-box-shadow: inset $h $v $blur $color;
+    -webkit-box-shadow: inset $h $v $blur $color;
+    box-shadow: inset $h $v $blur $color;
+  }
+  
+}
+
+// .gradient-white('../img/deals/fairNsimple/image-lock-bgr-medium.png',no-repeat,right ($padY + 10px),left top,padding-box, border-box;268px 65px,100% 100%);
+@mixin background-image ($image: none, $repeat: no-repeat, $position: left top, $origin: border-box, $size:100% 100%, $color: rgb(243,243,243)) {
+  background: $color;
+  background: url($image), url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2YzZjNmMyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEzJSIgc3RvcC1jb2xvcj0iI2Y3ZjdmNyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEzJSIgc3RvcC1jb2xvcj0iI2Y5ZjlmOSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjE4JSIgc3RvcC1jb2xvcj0iI2ZhZmFmYSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjE5JSIgc3RvcC1jb2xvcj0iI2ZjZmNmYyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjI0JSIgc3RvcC1jb2xvcj0iI2ZiZmJmYiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjQ1JSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmZmZmZmYiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+  background: url($image), -moz-linear-gradient(top,  rgba(243,243,243,1) 0%, rgba(247,247,247,1) 13%, rgba(249,249,249,1) 13%, rgba(250,250,250,1) 18%, rgba(252,252,252,1) 19%, rgba(251,251,251,1) 24%, rgba(255,255,255,1) 45%, rgba(255,255,255,1) 100%);
+  background: url($image), -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(243,243,243,1)), color-stop(13%,rgba(247,247,247,1)), color-stop(13%,rgba(249,249,249,1)), color-stop(18%,rgba(250,250,250,1)), color-stop(19%,rgba(252,252,252,1)), color-stop(24%,rgba(251,251,251,1)), color-stop(45%,rgba(255,255,255,1)), color-stop(100%,rgba(255,255,255,1)));
+  background: url($image), -webkit-linear-gradient(top,  rgba(243,243,243,1) 0%,rgba(247,247,247,1) 13%,rgba(249,249,249,1) 13%,rgba(250,250,250,1) 18%,rgba(252,252,252,1) 19%,rgba(251,251,251,1) 24%,rgba(255,255,255,1) 45%,rgba(255,255,255,1) 100%);
+  background: url($image), -o-linear-gradient(top,  rgba(243,243,243,1) 0%,rgba(247,247,247,1) 13%,rgba(249,249,249,1) 13%,rgba(250,250,250,1) 18%,rgba(252,252,252,1) 19%,rgba(251,251,251,1) 24%,rgba(255,255,255,1) 45%,rgba(255,255,255,1) 100%);
+  background: url($image), -ms-linear-gradient(top,  rgba(243,243,243,1) 0%,rgba(247,247,247,1) 13%,rgba(249,249,249,1) 13%,rgba(250,250,250,1) 18%,rgba(252,252,252,1) 19%,rgba(251,251,251,1) 24%,rgba(255,255,255,1) 45%,rgba(255,255,255,1) 100%);
+  background: url($image), linear-gradient(to bottom,  rgba(243,243,243,1) 0%,rgba(247,247,247,1) 13%,rgba(249,249,249,1) 13%,rgba(250,250,250,1) 18%,rgba(252,252,252,1) 19%,rgba(251,251,251,1) 24%,rgba(255,255,255,1) 45%,rgba(255,255,255,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3f3f3', endColorstr='#ffffff',GradientType=0 );
+  background-size: $size;
+  -webkit-background-size: $size;
+  background-origin: $origin;
+  -webkit-background-origin: $origin;
+  background-position: $position;
+  background-repeat: $repeat;
+  background-color: $color;
+}
+
+// icon inspired by BOOTSTRAP
+// .icon-figure (18px;18px,'../img/deals/fairNsimple/icon-inner-circle.jpg',no-repeat,center center,border-box,10px 10px);
+@mixin icon-figure ($width: 14px, $height: 14px, $image: none, $repeat: no-repeat, $position: left top, $origin: border-box, $size: 100% 100%) {
+  display: inline-block;
+  width: $width;
+  height: $height;  
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url($image);
+  background-size: $size;
+  -webkit-background-size: $size;
+  background-origin: $origin;
+  -webkit-background-origin: $origin;
+  background-position: $position;
+  background-repeat: $repeat;
+  background-color:transparent;
+  margin-top: 1px;
+}
+
+@mixin fontface($fontname, $fontfile) {
+  font-family: '${fontname}';
+  src: url('fonts/${fontfile}.eot');
+  src: url('fonts/${fontfile}.eotx?#iefix') format('embedded-opentype'),
+  url('fonts/${fontfile}.woff') format('woff'),
+  url('fonts/${fontfile}.ttf') format('truetype'),
+  url('fonts/${fontfile}.svg#${fontname}') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@mixin input-placeholder($color) {
+  &.placeholder {
+    color: $color;
+    text-transform: uppercase;
+   }
+  &:-moz-placeholder {
+    color: $color;
+    text-transform: uppercase;
+   }
+  &::-webkit-input-placeholder {
+    color: $color;
+    text-transform: uppercase;
+   }
+  &:-ms-input-placeholder {
+    color: $color;
+    text-transform: uppercase;
+   }
+}
+
+@mixin image ($image: none, $rpeat: no-repeat, $size: contain, $position: left top,  $origin: border-box, $color: rgba(0,0,0,0)) {
+  background: $color;
+  background-image: url($image);
+  background-size: $size;
+  background-origin: $origin;
+  -webkit-background-origin: $origin;
+  background-position: $position;
+  background-repeat: $rpeat;
+  /*background-attachment:;*/
+}
+
+//
+// ANIMATION STUFF
+//
+@mixin rotate-block ($grade: 0) {
+  -webkit-transform: rotate($grade);
+  -moz-transform: rotate($grade);
+  -ms-transform: rotate($grade);
+  -o-transform: rotate($grade);
+  transform: rotate($grade);
+}
+
+@mixin hardware_accelerate() {
+  -webkit-transform: translate3d(0,0,0);
+  -moz-transform: translate3d(0,0,0);
+  -ms-transform: translate3d(0,0,0);
+  -o-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
+}
+
+@mixin transform3d($x:0px,$y:0px,$z:0px) {
+  transform:translate3d($x,$y,$z);
+  -ms-transform:translate3d($x,$y,$z);
+  -webkit-transform:translate3d($x,$y,$z);
+  -moz-transform:translate3d($x,$y,$z);
+  -o-transform:translate3d($x,$y,$z);
+}
+
+@mixin translate3dY($y: 0) {
+  -webkit-transform: translate3d(0, $y, 0);
+  -moz-transform: translate3d(0, $y, 0);
+  -o-transform: translate3d(0, $y, 0);
+  transform: translate3d(0, $y, 0);
+}
+
+@mixin transform($arguments){
+    -webkit-transform: $arguments;
+    -moz-transform: $arguments;
+    -ms-transform: $arguments;
+    -o-transform: $arguments;
+    transform: $arguments;
+}
+
+@mixin animation-vendor($arguments) {
+    -webkit-animation: $arguments;
+    -moz-animation: $arguments;
+    -ms-animation: $arguments;
+    -o-animation: $arguments;
+    animation: $arguments;
+      
+       -webkit-animation-fill-mode: forwards;
+       -moz-animaton-fill-mode: forwards;
+        -ms-animation-fill-mode: forwards;
+       -o-animatin-fill-mode: forwards;
+       animation-fill-mode: forwards;
+}
+
+@mixin transition($arguments){
+  -webkit-transition: $arguments;
+  -moz-transition: $arguments;
+  -o-transition: $arguments;
+  -ms-transition: $arguments;
+  transition: $arguments;
+}
+
+@mixin transition-timing($arguments) {
+  -webkit-transition-timing-function: $arguments;
+  -moz-transition-timing-function: $arguments;
+  -o-transition-timing-function: $arguments;
+  -ms-transition-timing-function: $arguments;
+  transition-timing-function: $arguments;
+}
+
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes $animation-name {
+    @content;
+  }
+  @-moz-keyframes $animation-name {
+    @content;
+  }
+  @-ms-keyframes $animation-name {
+    @content;
+  }
+  @-o-keyframes $animation-name {
+    @content;
+  }
+  @keyframes $animation-name {
+    @content;
+  }
+}
