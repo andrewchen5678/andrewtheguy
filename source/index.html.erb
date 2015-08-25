@@ -1,7 +1,7 @@
 ---
 title: Andrew Chen's Website
 ---
-<canvas id="canvas" style="  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAI0lEQVQIW2NkwAT/GdHE/gP5jMiCYAGQIpggXAAmiCIAEgQAAE4FBbECyZcAAAAASUVORK5CYII=) #222;"></canvas>
+<canvas id="canvas" style=" position:fixed; top:0;left:0; /* background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAI0lEQVQIW2NkwAT/GdHE/gP5jMiCYAGQIpggXAAmiCIAEgQAAE4FBbECyZcAAAAASUVORK5CYII=) #222; */"></canvas>
 <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
@@ -53,7 +53,8 @@ title: Andrew Chen's Website
         <p>&copy; Andrew Chen 2015</p>
       </footer>
     </div> <!-- /container --> 
-    <script type="text/javscript">
+    <% content_for :page_scripts do %>
+    <script type="text/javascript">
 /**
  * code from http://codepen.io/trhino/pen/JFmiK
  * Generates random particles using canvas
@@ -247,3 +248,4 @@ Particles.prototype.clearCanvas = function(){
 // go go go!
 var particle = new Particles().init(); 
     </script>
+    <% end %>

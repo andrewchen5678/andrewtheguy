@@ -73,7 +73,9 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <![endif]-->
         <%= javascript_include_tag  "all" %>
-
+        <% if content_for?(:page_scripts) %>  
+          <%= yield_content :page_scripts %>
+        <% end %>
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>
             (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
