@@ -1,8 +1,9 @@
 /* 
  * Fallback to png on browsers that don't support svg
- * 
+ * just disable for now because I don't really care about ie8
+ * support anymore at this point.
  */
-
+/*
 if (!Modernizr.svg) {
     var imgs = document.getElementsByTagName('img');
     var svgExtension = /.*\.svg$/
@@ -14,3 +15,4 @@ if (!Modernizr.svg) {
         }
     }
 }
+*/

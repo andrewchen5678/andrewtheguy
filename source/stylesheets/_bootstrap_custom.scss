@@ -7,7 +7,8 @@
 @import "bootstrap-sprockets";
 
 // Core variables and mixins
-@import "_variables";
+//@import "_variables";
+@import "bootswatch_variables";
 //@import "_bootswatch_variables";
 @import "bootstrap/mixins";
 
@@ -60,4 +61,7 @@
 
 //@import "_bootswatch";
 //default bootstrap theme
-@import "bootstrap/theme";
+//@import "bootstrap/theme";
+
+//bootswatch
+@import "_bootswatch";
