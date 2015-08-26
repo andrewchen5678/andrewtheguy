@@ -27,7 +27,7 @@
         </rect>
             <animate attributeName="fill"
                  begin="0s" dur="4s"
-                 values="#000,#222;#444;#666;#888,#aaa,#ccc,#eee" calcMode="linear"
+                 values="#000;#222;#444;#666;#888;#aaa;#888;#666;#444;#222;#000" calcMode="linear"
                  repeatCount="indefinite" />
     </g>
 </svg>
