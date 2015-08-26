@@ -1,5 +1,21 @@
 //= // require jquery/dist/jquery.js
-//= require bootstrap-sass/assets/javascripts/bootstrap-sprockets.js
+//
+//
+// bootstrap 
+//= require bootstrap/affix
+//= require bootstrap/alert
+//= require bootstrap/button
+//= // require ./bootstrap/carousel
+//= require bootstrap/collapse
+//= require bootstrap/dropdown
+//= require bootstrap/tab
+//= require bootstrap/transition
+//= require bootstrap/scrollspy
+//= require bootstrap/modal
+//= require bootstrap/tooltip
+//= require bootstrap/popover
+// end bootstrap
+//
 //= //require angular/angular.js
 //= require includes/global.js
 //= require_tree ./includes/

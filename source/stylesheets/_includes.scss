@@ -1,3 +1,8 @@
+/*
+not to be used by libraries
+*/
+@import "bootstrap-sprockets";
+@import "variables";
 @import "bootstrap/mixins";
 @import "flexbox";
 @import "mixins";

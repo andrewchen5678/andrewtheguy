@@ -53,6 +53,10 @@ set :js_dir, 'javascripts'
 
 set :images_dir, 'images'
 
+configure :development do
+  set :debug_assets, true
+end
+
 # Build-specific configuration
 configure :build do
   # For example, change the Compass output style for deployment
@@ -77,6 +81,7 @@ after_configuration do
   @bower_config = JSON.parse(IO.read("#{root}/.bowerrc"))
   sprockets.append_path File.join "#{root}", @bower_config["directory"]
   sprockets.append_path File.join "#{root}", @bower_config["directory"], "bootstrap-sass", "assets", "stylesheets"
+  sprockets.append_path File.join "#{root}", @bower_config["directory"], "bootstrap-sass", "assets", "javascripts"
 end
 
 ignore 'javascripts/includes/*'
