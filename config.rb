@@ -80,8 +80,8 @@ after_configuration do
 
   @bower_config = JSON.parse(IO.read("#{root}/.bowerrc"))
   sprockets.append_path File.join "#{root}", @bower_config["directory"]
-  sprockets.append_path File.join "#{root}", @bower_config["directory"], "bootstrap-sass", "assets", "stylesheets"
-  sprockets.append_path File.join "#{root}", @bower_config["directory"], "bootstrap-sass", "assets", "javascripts"
+  sprockets.append_path File.join "#{root}", @bower_config["directory"], "foundation", "scss"
+  sprockets.append_path File.join "#{root}", @bower_config["directory"], "foundation", "js"
 end
 
 ignore 'javascripts/includes/*'

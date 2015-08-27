@@ -1,4 +1,4 @@
-//= require '_bootstrap_custom'
+//=// require '_foundation_custom'
 
 @import "includes";
 @import "webicons";
@@ -82,7 +82,8 @@ z-index: -1000;
 }
 
 .home-about-item{
-    @include make-md-column(4);
+    //@include make-md-column(4);
+    @include grid-column(4);
     .heading-icon{ //assumed to be svg
         height:170px;
     }
