@@ -17,5 +17,8 @@
 // end bootstrap
 //
 //= //require angular/angular.js
+//= require foundation.js
 //= require includes/global.js
 //= require_tree ./includes/
+
+$(document).foundation();

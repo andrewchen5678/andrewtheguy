@@ -71,7 +71,9 @@
 // We use this to control whether or not CSS classes come through in the gem files.
 $include-html-classes: false;
 // $include-print-styles: true;
-$include-html-global-classes: $include-html-classes;
+//$include-html-global-classes: $include-html-classes;
+
+$include-html-global-classes: true;
 
 // b. Grid
 // - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -1398,6 +1400,7 @@ $include-html-global-classes: $include-html-classes;
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
 // $include-html-top-bar-classes: $include-html-classes;
+$include-html-top-bar-classes: true;
 
 // Background color for the top bar
 // $topbar-bg-color: $oil;
