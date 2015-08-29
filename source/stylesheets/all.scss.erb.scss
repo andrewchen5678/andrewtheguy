@@ -2,15 +2,15 @@
 @import "webicons";
 
 body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+    //padding-top: 50px;
+    //padding-bottom: 20px;
     //height:100%;
     position: relative;
 }
 
 .navbar{
     //text-shadow: none; //kinda choppy with it on
-    @include hw_accelerate; //fix choppiness
+    //@include hw_accelerate; //fix choppiness
 }
 
 .navbar-header{
@@ -18,12 +18,12 @@ body {
 }
 
 .header-logo{
-    display:block;
-    margin-top: 10px;
-    margin-left: 15px;
-    margin-right: 15px;
+    //display:block;
+    //margin-top: 10px;
+    //margin-left: 15px;
+    //margin-right: 15px;
     .logo{
-        width: 30px;
+        //width: 30px;
         
         /*
         #tag_group {
@@ -49,14 +49,21 @@ body {
 
 
 .jumbotron{
+    //@include grid-row();
   background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAI0lEQVQIW2NkwAT/GdHE/gP5jMiCYAGQIpggXAAmiCIAEgQAAE4FBbECyZcAAAAASUVORK5CYII=) #222;
   color: rgba(255, 255, 255, 0.8);
   position: relative;
   //padding-bottom:10px;
-  &::before{ 
+  //&::before{ 
       //position:absolute;
       //bottom:0;
       //@include triangle(bottom,white,10px); 
+  //}
+  
+  .header-container{
+      @include grid-row();
+      padding: 1em 0;
+      //@include grid-column(12);
   }
 }
 

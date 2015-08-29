@@ -69,11 +69,9 @@
 // $base-line-height: 150%;
 
 // We use this to control whether or not CSS classes come through in the gem files.
-$include-html-classes: false;
+$include-html-classes: true;
 // $include-print-styles: true;
-//$include-html-global-classes: $include-html-classes;
-
-$include-html-global-classes: true;
+$include-html-global-classes: $include-html-classes;
 
 // b. Grid
 // - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -127,6 +125,7 @@ $include-html-global-classes: true;
 
 // We use these to control various global styles
 // $body-bg: $white;
+$body-bg: #272B30;
 // $body-font-color: $jet;
 // $body-font-family: $font-family-sans-serif;
 // $body-font-weight: $font-weight-normal;
@@ -1400,7 +1399,6 @@ $include-html-global-classes: true;
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
 // $include-html-top-bar-classes: $include-html-classes;
-$include-html-top-bar-classes: true;
 
 // Background color for the top bar
 // $topbar-bg-color: $oil;
