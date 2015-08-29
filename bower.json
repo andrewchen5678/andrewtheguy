@@ -13,7 +13,6 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "~1.4.4",
     "bootstrap-sass": "~3.3.5",
     "foundation": "~5.5.2",
     "jquery": "~2.1.4"
