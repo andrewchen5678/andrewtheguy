@@ -1,7 +1,14 @@
 //not to be used by libraries
 
 //@import "bootstrap-sprockets";
-@import "normalize";
-@import "foundation_custom";
+@import "settings";
+$include-html-classes: false;
+$include-print-styles: false;
+$include-js-meta-styles: false; // Warning! Meta styles are a dependancy of the Javascript.
+$include-html-global-classes: false;
+$include-html-grid-classes: false;
+/* grid start  */
+@import "foundation/components/grid";
+/* grid end empty */
 @import "flexbox";
 @import "mixins";

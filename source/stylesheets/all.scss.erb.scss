@@ -1,3 +1,5 @@
+// = require normalize
+// = require _foundation_custom
 @import "includes";
 @import "webicons";
 
@@ -8,9 +10,14 @@ body {
     position: relative;
 }
 
-.navbar{
+#top-nav-cont{
+    border-bottom: 1px solid rgba(0,0,0,0.6);;
+}
+
+.top-bar{
     //text-shadow: none; //kinda choppy with it on
     //@include hw_accelerate; //fix choppiness
+
 }
 
 .navbar-header{
@@ -43,9 +50,11 @@ body {
     width: 100%; 
   }
 }
-
 /* end IE9 fix for svg */
 
+.title-area{
+    padding-left: $column-gutter/2;
+}
 
 
 .jumbotron{
@@ -53,6 +62,7 @@ body {
   background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAI0lEQVQIW2NkwAT/GdHE/gP5jMiCYAGQIpggXAAmiCIAEgQAAE4FBbECyZcAAAAASUVORK5CYII=) #222;
   color: rgba(255, 255, 255, 0.8);
   position: relative;
+  margin-bottom: 2rem;
   //padding-bottom:10px;
   //&::before{ 
       //position:absolute;
@@ -63,6 +73,9 @@ body {
   .header-container{
       @include grid-row();
       padding: 1em 0;
+      .header-inner{
+          @include grid-column(12);
+      }
       //@include grid-column(12);
   }
 }
@@ -88,8 +101,25 @@ z-index: -1000;
 
 .home-about-item{
     //@include make-md-column(4);
-    @include grid-column(4);
+    //padding: 1em 0;
+    @include grid-column(12);
+    
+    
     .heading-icon{ //assumed to be svg
         height:170px;
+    }
+}
+
+.footer-cont{
+    @include grid-row();
+    .footer-wrapper{
+        @include grid-column(12);
+    }
+}
+
+//tablet and up
+@media #{$medium-up} {
+    .home-about-item{
+      @include grid-column(4);
     }
 }
