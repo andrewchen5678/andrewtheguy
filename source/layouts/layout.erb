@@ -15,7 +15,7 @@
 
         <script src="javascripts/modernizr-2.8.3-respond-1.4.2.min.js"></script>
     </head>
-    <body>
+    <body id="page-<%= current_page.data.page_id %>">
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -35,9 +35,9 @@
         <li class="divider"></li>
         <li class="active"><a href="/">Home</a></li>
       <li class="divider"></li>
-      <li class=""><a href="/">About</a></li>
+      <li class=""><a href="/about">About</a></li>
       <li class="divider"></li>
-      <li class=""><a href="/">Contact</a></li>
+      <li class=""><a href="/contact">Contact</a></li>
       <li class="divider"></li>
       <!--<li class="has-dropdown">
         <a href="#">Right Button Dropdown</a>
@@ -58,7 +58,7 @@
         
 <%= yield %>
         
-  <hr>
+  <hr class="footer-divider">
     <div class="footer-cont">
         <div class="footer-wrapper">
           

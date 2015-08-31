@@ -11,7 +11,7 @@ body {
 }
 
 #top-nav-cont{
-    border-bottom: 1px solid rgba(0,0,0,0.6);;
+    border-bottom: 1px solid rgba(0,0,0,0.6);
 }
 
 .top-bar{
@@ -94,6 +94,7 @@ z-index: -1000;
 }
 
 .home-about-list{
+    @include grid-row();
     h2{
         text-align: center;
     }
@@ -108,6 +109,15 @@ z-index: -1000;
     .heading-icon{ //assumed to be svg
         height:170px;
     }
+}
+
+.twitter-section{
+    text-align: center;
+    padding: 0 $column-gutter/2;
+}
+
+.footer-divider{
+    border: 1px dashed rgba(136,136,136,0.5);
 }
 
 .footer-cont{

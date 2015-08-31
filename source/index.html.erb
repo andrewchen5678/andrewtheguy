@@ -1,5 +1,6 @@
 ---
-title: Andrew Chen's Website
+title: Home - Andrew Chen's Website
+page_id: home
 ---
 <canvas id="bg-canvas" width="1920" height="1200"></canvas><!-- same as background -->
 <!-- Main jumbotron for a primary marketing message or call to action -->
@@ -23,33 +24,32 @@ title: Andrew Chen's Website
       </div>
     </header>
 
-    <div class="home-about-list container">
-      <!-- Example row of columns -->
-      <div class="row">
-        <div class="home-about-item">
+    <div class="home-about-list">
+      
+        <section class="home-about-item">
           <h2><img src="<%=image_path 'code-heading.svg' %>" class="heading-icon" alt="Ninja Coder"></h2>
           <p>Coder ipsum, donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div>
-        <div class="home-about-item">
+          <!--<p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>-->
+        </section>
+        <section class="home-about-item">
           <h2><img src="<%=image_path 'beethoven-circle.svg' %>" class="heading-icon" alt="Classical Music Lover"></h2>
           <p>Beethoven ipsum, donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-       </div>
-        <div class="home-about-item">
+          <!--<p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>-->
+       </section>
+        <section class="home-about-item">
           <h2><img src="<%=image_path 'circle-chef-hat.svg' %>" class="heading-icon" alt="Special Food Maker"></h2>
           <p>Chef ipsum, donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div>
+          <!--<p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>-->
+        </section>
       </div>
-      <div class="row">
-          <div class="col-xs-12">
+      <div class="twitter-section">
+          
             <a class="twitter-timeline" href="https://twitter.com/andrewchen5678" data-widget-id="635836045154631681">Tweets by @andrewchen5678</a>
             <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-          </div>
+          
       </div>
 
-    </div> <!-- /container --> 
+    
     <% content_for :page_scripts do %>
     <script type="text/plain">
 /**
@@ -250,93 +250,6 @@ var particle = new Particles().init();
 //});
     </script>
     <script type="text/javascript">
-window.onload = function(){
-	//canvas init
-	var canvas = document.getElementById("bg-canvas");
-	var ctx = canvas.getContext("2d");
-	
-	//canvas dimensions
-	//var W = window.innerWidth;
-	//var H = window.innerHeight;
-	var W = canvas.width;
-	var H = canvas.height;
-	//canvas.width = W;
-	//canvas.height = H;
-	
-	//snowflake particles
-	var mp = 25; //max particles
-	var particles = [];
-	for(var i = 0; i < mp; i++)
-	{
-		particles.push({
-			x: Math.random()*W, //x-coordinate
-			y: Math.random()*H, //y-coordinate
-			r: Math.random()*4+1, //radius
-			d: Math.random()*mp //density
-		})
-	}
-	
-	//Lets draw the flakes
-	function draw()
-	{
-		ctx.clearRect(0, 0, W, H);
-		
-		ctx.fillStyle = "rgba(206, 220, 226, 0.8)";
-		ctx.beginPath();
-		for(var i = 0; i < mp; i++)
-		{
-			var p = particles[i];
-			ctx.moveTo(p.x, p.y);
-			ctx.arc(p.x, p.y, p.r, 0, Math.PI*2, true);
-		}
-		ctx.fill();
-		update();
-	}
-	
-	//Function to move the snowflakes
-	//angle will be an ongoing incremental flag. Sin and Cos functions will be applied to it to create vertical and horizontal movements of the flakes
-	var angle = 0;
-	function update()
-	{
-		angle += 0.01;
-		for(var i = 0; i < mp; i++)
-		{
-			var p = particles[i];
-			//Updating X and Y coordinates
-			//We will add 1 to the cos function to prevent negative values which will lead flakes to move upwards
-			//Every particle has its own density which can be used to make the downward movement different for each flake
-			//Lets make it more random by adding in the radius
-			p.y += Math.cos(angle+p.d) + 1 + p.r/2;
-			p.x += Math.sin(angle) * 2;
-			
-			//Sending flakes back from the top when it exits
-			//Lets make it a bit more organic and let flakes enter from the left and right also.
-			if(p.x > W+5 || p.x < -5 || p.y > H)
-			{
-				if(i%3 > 0) //66.67% of the flakes
-				{
-					particles[i] = {x: Math.random()*W, y: -10, r: p.r, d: p.d};
-				}
-				else
-				{
-					//If the flake is exitting from the right
-					if(Math.sin(angle) > 0)
-					{
-						//Enter from the left
-						particles[i] = {x: -5, y: Math.random()*H, r: p.r, d: p.d};
-					}
-					else
-					{
-						//Enter from the right
-						particles[i] = {x: W+5, y: Math.random()*H, r: p.r, d: p.d};
-					}
-				}
-			}
-		}
-	}
-	
-	//animation loop
-	setInterval(draw, 33);
-};
+
     </script>
     <% end %>
