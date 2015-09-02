@@ -2,11 +2,9 @@
 title: Home - Andrew Chen's Website
 page_id: home
 ---
-<canvas id="bg-canvas" width="1920" height="1200"></canvas><!-- same as background -->
-<!-- Main jumbotron for a primary marketing message or call to action -->
     <header class="jumbotron">
-      <div class="header-container">
-          <div class="header-inner">
+      <div class="header-container default-row">
+          <div class="header-inner inner-wrapper-full">
           <!--<video preload="auto" loop="loop" class="blk-video" autoplay="autoplay" poster="/images/nyc_traffic.jpg" id="bgvid">
               <source src="//s3.amazonaws.com/andrewtheguy/videos/nyc_traffic.mp4" type="video/mp4">
               <source src="//s3.amazonaws.com/andrewtheguy/videos/nyc_traffic.webm" type="video/webm">
@@ -24,7 +22,7 @@ page_id: home
       </div>
     </header>
 
-    <div class="home-about-list">
+    <div class="home-about-list default-row">
       
         <section class="home-about-item">
           <h2><img src="<%=image_path 'code-heading.svg' %>" class="heading-icon" alt="Ninja Coder"></h2>
@@ -42,15 +40,16 @@ page_id: home
           <!--<p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>-->
         </section>
       </div>
-      <div class="twitter-section">
+      <!--<div class="twitter-section">
           
             <a class="twitter-timeline" href="https://twitter.com/andrewchen5678" data-widget-id="635836045154631681">Tweets by @andrewchen5678</a>
             <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
           
-      </div>
-
+      </div>--><!-- twitter widget kinda sucks when comes to customization, and I don't want to spin up a backend api to make my own widget -->
+<!-- considering using https://github.com/jasonmayes/Twitter-Post-Fetcher as a workaround -->
     
     <% content_for :page_scripts do %>
+<!-- not a typo, because it is NOT USED, might remove later -->
     <script type="text/plain">
 /**
  * code from http://codepen.io/trhino/pen/JFmiK
@@ -248,8 +247,5 @@ Particles.prototype.clearCanvas = function(){
 // go go go!
 var particle = new Particles().init(); 
 //});
-    </script>
-    <script type="text/javascript">
-
     </script>
     <% end %>

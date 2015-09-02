@@ -3,6 +3,29 @@
 @import "includes";
 @import "webicons";
 
+
+//default classes
+.default-row{
+    @include grid-row();
+}
+
+.inner-wrapper-full{
+    @include grid-column(12);
+}
+
+
+/* ie9 fix for svg */
+.ie9 img[src*=".svg"] {
+  width: 100%; 
+}
+/* 2 */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  img[src*=".svg"] {
+    width: 100%; 
+  }
+}
+/* end IE9 fix for svg */
+
 body {
     //padding-top: 50px;
     //padding-bottom: 20px;
@@ -10,6 +33,22 @@ body {
     position: relative;
 }
 
+//background canvas
+#bg-canvas{
+position:fixed; 
+top:0;
+left:0;
+z-index: -1000;
+/* background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAI0lEQVQIW2NkwAT/GdHE/gP5jMiCYAGQIpggXAAmiCIAEgQAAE4FBbECyZcAAAAASUVORK5CYII=) #222; */
+   /* background: url('<%= image_path('bg.jpg'); %>') no-repeat center center fixed; */
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+
+//navbar
 #top-nav-cont{
     border-bottom: 1px solid rgba(0,0,0,0.6);
 }
@@ -22,6 +61,10 @@ body {
 
 .navbar-header{
     //
+}
+
+.title-area{
+    padding-left: $column-gutter/2;
 }
 
 .header-logo{
@@ -40,22 +83,10 @@ body {
     }
 }
 
-/* ie9 fix for svg */
-.ie9 img[src*=".svg"] {
-  width: 100%; 
-}
-/* 2 */
-@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-  img[src*=".svg"] {
-    width: 100%; 
-  }
-}
-/* end IE9 fix for svg */
 
-.title-area{
-    padding-left: $column-gutter/2;
-}
-
+//HOME:
+//
+//home header
 
 .jumbotron{
     //@include grid-row();
@@ -71,30 +102,19 @@ body {
   //}
   
   .header-container{
-      @include grid-row();
+      
       padding: 1em 0;
       .header-inner{
-          @include grid-column(12);
+          //@include grid-column(12);
       }
       //@include grid-column(12);
   }
 }
 
-#bg-canvas{
-position:fixed; 
-top:0;
-left:0;
-z-index: -1000;
-/* background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAI0lEQVQIW2NkwAT/GdHE/gP5jMiCYAGQIpggXAAmiCIAEgQAAE4FBbECyZcAAAAASUVORK5CYII=) #222; */
-   /* background: url('<%= image_path('bg.jpg'); %>') no-repeat center center fixed; */
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
+//home about
 
 .home-about-list{
-    @include grid-row();
+    
     h2{
         text-align: center;
     }
@@ -110,20 +130,21 @@ z-index: -1000;
         height:170px;
     }
 }
-
+/*
 .twitter-section{
     text-align: center;
     padding: 0 $column-gutter/2;
 }
+*/
 
 .footer-divider{
     border: 1px dashed rgba(136,136,136,0.5);
 }
 
 .footer-cont{
-    @include grid-row();
+    
     .footer-wrapper{
-        @include grid-column(12);
+        //@include grid-column(12);
     }
 }
 

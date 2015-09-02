@@ -33,11 +33,13 @@
     <!-- Right Nav Section -->
     <ul class="right">
         <li class="divider"></li>
-        <li class="active"><a href="/">Home</a></li>
+        <li class="<%= current_page.data.page_id=='home' ? 'active' : '' %>"><a href="/">Home</a></li>
       <li class="divider"></li>
-      <li class=""><a href="/about">About</a></li>
+      <li class="<%= current_page.data.page_id=='about' ? 'active' : '' %>"><a href="/about">About</a></li>
       <li class="divider"></li>
-      <li class=""><a href="/contact">Contact</a></li>
+      <li class=""><a href="https://www.techywolf.com" target="_blank" rel="external">Blog</a></li>
+      <li class="divider"></li>
+      <li class="<%= current_page.data.page_id=='contact' ? 'active' : '' %>"><a href="/contact">Contact</a></li>
       <li class="divider"></li>
       <!--<li class="has-dropdown">
         <a href="#">Right Button Dropdown</a>
@@ -55,18 +57,22 @@
   </section>
 </nav>
 </div>
-        
+<canvas id="bg-canvas" width="1920" height="1200"></canvas>
+<main role="main">
 <%= yield %>
-        
+</main>
+    
   <hr class="footer-divider">
-    <div class="footer-cont">
-        <div class="footer-wrapper">
-          
-
-          <footer>
-            <p>&copy; Andrew Chen 2015. Made with ♥.</p>
+    <div class="footer-cont ">
+        
+          <footer class="footer-wrapper default-row">
+              <div class="copyright-wrapper">
+                <p>&copy; Andrew Chen 2015. Made with ⌨.</p>
+              </div>
+              <div class="social-wrapper">
+              </div>
           </footer>
-        </div>
+        
     </div>
            <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>--><!-- use my own because of the GFW of China-->
         <!--<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>-->
