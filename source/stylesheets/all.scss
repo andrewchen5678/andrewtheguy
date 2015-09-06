@@ -161,3 +161,16 @@ span.delicious:after{
 span.bread:after{
     content:'\1F35E';
 }
+/*
+span.current-year{
+    display: none;
+}
+*/
+
+//no more IE8 or below plz
+.browserupgrade {
+    //margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 25% 0;
+}
