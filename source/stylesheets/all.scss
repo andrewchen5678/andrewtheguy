@@ -110,14 +110,14 @@ z-index: -1000;
 
 //home about
 
-.home-about-list{
+.about-list{
     
     h2{
         text-align: center;
     }
 }
 
-.home-about-item{
+.about-item{
     //@include make-md-column(4);
     //padding: 1em 0;
     @include grid-column(12);
@@ -147,7 +147,17 @@ z-index: -1000;
 
 //tablet and up
 @media #{$medium-up} {
-    .home-about-item{
+    .about-item{
       @include grid-column(4);
     }
+}
+
+
+//emojis
+span.delicious:after{
+    content:'\1F60B\1F374';
+}
+
+span.bread:after{
+    content:'\1F35E';
 }
