@@ -115,3 +115,5 @@ $(function () {
 });
 
 $(document).foundation();
+
+//$('span.current-year').html(new Date().getFullYear());
