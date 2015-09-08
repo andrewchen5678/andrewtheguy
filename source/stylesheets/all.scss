@@ -55,6 +55,11 @@ z-index: -1000;
 //navbar
 #top-nav-cont{
     border-bottom: 1px solid rgba(0,0,0,0.6);
+    //@include hardware_accelerate;
+}
+
+main{
+    //margin-top: 45px;
 }
 
 .top-bar{

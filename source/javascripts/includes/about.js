@@ -1,6 +1,6 @@
-$(function(){
+//$(function(){
     if(isAbout()){
-
+	var isTouch = $("html").hasClass("touch");
             var croc = Snap.select("#crocodile"),
                 head = croc.select("#upper-head"),
                 jaw = croc.select("#upper-jaw"),
@@ -13,6 +13,7 @@ $(function(){
             ];
 
             function close() {
+                //alert('close');
                 clearTimeout(timer);
 
                 head.animate({ 
@@ -47,11 +48,24 @@ $(function(){
             }
 
             timer = setTimeout(close, 50);
+/*
 
-            croc.hover(open, 
-                function () {
-                    timer = setTimeout(close, 200);
-                }
-            );
+    */
+   if(isTouch){
+       
+            croc.touchend(function(e){
+                //alert('touch');
+                    open();
+                    //alert('touchEnd');
+                    timer = setTimeout(close, 700);
+                });
+            }else{
+                croc.hover(open, 
+                    function () {
+                        timer = setTimeout(close, 200);
+                    }
+                );
+            }
+                
     }
-});
+//});

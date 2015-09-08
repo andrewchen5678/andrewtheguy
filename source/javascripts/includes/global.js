@@ -19,6 +19,9 @@ if (typeof console === "undefined" || typeof console.log === "undefined") {
     }
 }
 
+$(document).foundation();
+
+
 function isHome() {
     return $('body#page-home').length !== 0;
 }
@@ -118,6 +121,5 @@ $(function () {
     }
 });
 
-$(document).foundation();
 
 //$('span.current-year').html(new Date().getFullYear());

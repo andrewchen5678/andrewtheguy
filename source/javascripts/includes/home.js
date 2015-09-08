@@ -1,5 +1,5 @@
-$(function(){
+//$(function(){
     if(isHome()){
 	
     }
-});
+//});
