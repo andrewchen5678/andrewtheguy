@@ -40,7 +40,13 @@ top:0;
 left:0;
 z-index: -1000;
 
-  @include body_bg;
+  /* background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAI0lEQVQIW2NkwAT/GdHE/gP5jMiCYAGQIpggXAAmiCIAEgQAAE4FBbECyZcAAAAASUVORK5CYII=) #222; */
+//background: url('<%= image_path('bg.jpg'); %>') no-repeat center center fixed;
+  background: url(image-path('diamonds.png')) repeat;
+  //-webkit-background-size: cover;
+  //-moz-background-size: cover;
+  //-o-background-size: cover;
+  //background-size: cover;
 
 }
 
@@ -87,7 +93,14 @@ z-index: -1000;
 
 .jumbotron{
     //@include grid-row();
-  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAI0lEQVQIW2NkwAT/GdHE/gP5jMiCYAGQIpggXAAmiCIAEgQAAE4FBbECyZcAAAAASUVORK5CYII=) #222;
+    //background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAI0lEQVQIW2NkwAT/GdHE/gP5jMiCYAGQIpggXAAmiCIAEgQAAE4FBbECyZcAAAAASUVORK5CYII=) #222;
+//background-color: transparent;
+//background-image: repeating-linear-gradient(-45deg, transparent, transparent 5px, rgba(0,0,0,.8) 5px, rgba(0,0,0,.8) 6px);
+
+  
+  @include home_bg;
+  
+
   color: rgba(255, 255, 255, 0.8);
   position: relative;
   margin-bottom: 2rem;
@@ -161,6 +174,32 @@ span.delicious:after{
 span.bread:after{
     content:'\1F35E';
 }
+
+span.custard:after{
+    content:'\1F36E';
+}
+
+span.keyboard-wrapper{
+    span{
+        display: none;
+    }
+    &:after{
+        content:'\2328';
+        
+    }
+}
+
+img.bottom-computer{
+    height: 1rem;
+    vertical-align: baseline;
+    //background-image: url(image-path('gnome-computer.svg'));
+}
+
+.svg-heading{
+    display: inline-block;
+    vertical-align: middle;
+}
+
 /*
 span.current-year{
     display: none;

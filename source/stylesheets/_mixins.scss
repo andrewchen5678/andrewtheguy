@@ -366,3 +366,17 @@
     border-top:    $perpendicular-borders;
   }
 }
+
+@mixin home_bg {
+    $deg: 135deg;
+    $color: rgba(0,0,0,0.8);
+    $bg_size: 4px;
+    background-color: rgba(34,34,34,0.7);
+background-image: -webkit-repeating-linear-gradient($deg, $color, $color 1px, transparent 2px, transparent 2px, $color 3px);
+  background-image: -moz-repeating-linear-gradient($deg, $color, $color 1px, transparent 2px, transparent 2px, $color 3px);
+  background-image: -o-repeating-linear-gradient($deg, $color, $color 1px, transparent 2px, transparent 2px, $color 3px);
+  background-image: repeating-linear-gradient($deg, $color, $color 1px, transparent 2px, transparent 2px, $color 3px);
+  -webkit-background-size: $bg_size $bg_size;
+  -moz-background-size: $bg_size $bg_size;
+  background-size: $bg_size $bg_size;
+}

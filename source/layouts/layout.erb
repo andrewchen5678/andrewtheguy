@@ -8,7 +8,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title><%= current_page.data.title || "The Middleman" %></title>
         <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
         <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
         <%= stylesheet_link_tag "all" %>
@@ -67,7 +67,7 @@
         
           <footer class="footer-wrapper default-row">
               <div class="copyright-wrapper">
-                <p>&copy; Andrew Chen 2015. Made with ⌨.</p>
+                  <p>&copy; Andrew Chen 2015. Made with <span class="keyboard-wrapper"><span class="bottom-keyboard">keyboard</span></span> and <img class="bottom-computer" src="<%=image_path('gnome-computer.svg') %>" alt="computer"/>.</p>
               </div>
               <div class="social-wrapper">
               </div>

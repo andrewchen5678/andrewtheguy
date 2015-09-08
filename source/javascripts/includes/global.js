@@ -23,6 +23,10 @@ function isHome() {
     return $('body#page-home').length !== 0;
 }
 
+function isAbout() {
+    return $('body#page-about').length !== 0;
+}
+
 $(function () {
     //canvas init
     var canvas = document.getElementById("bg-canvas");

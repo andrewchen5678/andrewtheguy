@@ -13,6 +13,7 @@
     "tests"
   ],
   "dependencies": {
+    "Snap.svg": "snap.svg#~0.4.1",
     "bootstrap-sass": "~3.3.5",
     "foundation": "~5.5.2",
     "jquery": "~2.1.4"

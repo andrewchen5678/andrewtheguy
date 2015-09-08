@@ -18,6 +18,7 @@
 //
 //no require angular/angular.js
 //= require foundation.js
+//= require Snap.svg/dist/snap.svg.js
 //= require includes/global.js
 //= require_tree ./includes/
 
