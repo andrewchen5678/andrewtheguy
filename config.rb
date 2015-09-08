@@ -55,6 +55,7 @@ set :images_dir, 'images'
 
 configure :development do
   set :debug_assets, true
+  set :gtm_id, 'GTM-XXXXXX'
 end
 
 # Build-specific configuration
@@ -73,6 +74,10 @@ configure :build do
 
   # Or use a different image path
   # set :http_prefix, "/Content/images/"
+  activate :dotenv, env: '.env.build'
+  gtm_id=ENV['ANDREW_GTM_ID']
+  raise 'ANDREW_GTM_ID cannot be empty, make sure create a file called .env.build and add ANDREW_GTM_ID=your GTM ID' if gtm_id.nil? || gtm_id.empty?
+  set :gtm_id, gtm_id
 end
 
 # Add bower's directory to sprockets asset path
