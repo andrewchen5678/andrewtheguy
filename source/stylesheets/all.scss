@@ -1,6 +1,7 @@
 // = require normalize
 // = require _foundation_custom
 @import "includes";
+@import "gh-fork-ribbon";
 @import "webicons";
 
 
@@ -158,6 +159,12 @@ z-index: -1000;
     }
 }
 
+@media #{$small-only} {
+    .github-fork-ribbon-wrapper{
+        display:none;
+    }
+}
+
 //tablet and up
 @media #{$medium-up} {
     .about-item{
@@ -212,4 +219,12 @@ span.current-year{
     background: #ccc;
     color: #000;
     padding: 25% 0;
+}
+
+.under-construction{
+    img{
+        width: 5em;
+    }
+    font-size: 2em;
+    //font-weight: bold;
 }
