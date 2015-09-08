@@ -122,4 +122,16 @@ $(function () {
 });
 
 
+var canvas=document.getElementById('bg-canvas');
+
+$(window).on('resize', function(){
+    //alert(window.outerHeight);
+      wHeight = window.screen.height;
+      //alert(wHeight);
+      wWidth = $(window).width();
+  
+  canvas.width = wWidth;
+  canvas.height = wHeight;
+});
+
 //$('span.current-year').html(new Date().getFullYear());
